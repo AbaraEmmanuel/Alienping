@@ -6,390 +6,234 @@
     <title>AlienPing | Intergalactic Currency | Launching 06/20/2025</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="stars"></div>
-    <div class="twinkling"></div>
+    <!-- Animated Background -->
+    <div class="stars-container">
+        <div class="stars"></div>
+        <div class="stars2"></div>
+        <div class="stars3"></div>
+    </div>
     
-    <header>
-        <nav>
-            <div class="logo-container">
-                <img src="logo.png" alt="AlienPing Logo" class="logo">
-                <span class="logo-text">$ALIENPING</span>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <div class="logo-container">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/alienping.jpg-I2xxX7Ss90r7ey6TrWxJ1UoF9YhYkN.jpeg" alt="AlienPing Logo" class="logo-img">
+                </div>
+                <span class="brand-text">$ALIENPING</span>
             </div>
-            <div class="menu-toggle" id="menu-toggle">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#tokenomics">Tokenomics</a></li>
-                <li><a href="#community">Community</a></li>
-                <li><a href="#roadmap">Roadmap</a></li>
-                <li><a href="#faq">FAQ</a></li>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#tokenomics" class="nav-link">Tokenomics</a></li>
+                <li><a href="#community" class="nav-link">Community</a></li>
+                <li><a href="#roadmap" class="nav-link">Roadmap</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-logo">
-                <img src="logo.png" alt="AlienPing Logo" class="main-logo">
-            </div>
-            <h1 class="glow-text">WELCOME TO <span class="highlight">ALIENPING</span></h1>
-            <p class="tagline">The Intergalactic Meme Coin Revolution</p>
-            
-            <div class="countdown-container">
-                <h2>Launching In:</h2>
-                <div class="countdown" id="countdown">
-                    <div class="countdown-item">
-                        <span id="days">00</span>
-                        <span class="countdown-label">Days</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span id="hours">00</span>
-                        <span class="countdown-label">Hours</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span id="minutes">00</span>
-                        <span class="countdown-label">Minutes</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span id="seconds">00</span>
-                        <span class="countdown-label">Seconds</span>
-                    </div>
+    <main class="main">
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-logo">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/alienping.jpg-I2xxX7Ss90r7ey6TrWxJ1UoF9YhYkN.jpeg" alt="AlienPing Logo" class="main-logo">
                 </div>
-                <p class="launch-date">Official Launch: June 20, 2025</p>
+                
+                <h1 class="hero-title">
+                    <span class="title-line1">WELCOME TO</span>
+                    <span class="title-line2">ALIENPING</span>
+                </h1>
+                
+                <p class="hero-subtitle">The Intergalactic Meme Coin Revolution</p>
+                
+                <div class="countdown-section">
+                    <h2 class="countdown-title">Launching In:</h2>
+                    <div class="countdown-timer" id="countdown">
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="days">00</span>
+                            <span class="countdown-label">DAYS</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="hours">00</span>
+                            <span class="countdown-label">HOURS</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="minutes">00</span>
+                            <span class="countdown-label">MINUTES</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="seconds">00</span>
+                            <span class="countdown-label">SECONDS</span>
+                        </div>
+                    </div>
+                    <p class="launch-date">Official Launch: June 20, 2025</p>
+                </div>
+                
+                <div class="hero-buttons">
+                    <button class="btn btn-primary">JOIN WHITELIST</button>
+                    <button class="btn btn-secondary">JOIN COMMUNITY</button>
+                </div>
             </div>
-            
-            <div class="hero-buttons">
-                <a href="#" class="btn primary-btn">Join Whitelist</a>
-                <a href="#community" class="btn secondary-btn">Join Community</a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-header">
-                <h2>About <span class="highlight">$ALIENPING</span></h2>
-                <div class="ufo-divider">
-                    <div class="ufo">👽</div>
+        <section id="about" class="section about-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">About <span class="highlight">$ALIENPING</span></h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p class="about-paragraph">
+                            $ALIENPING is the meme coin to watch, powered by a unique trending bot. We vet projects thoroughly, analyzing wallets, holders, and MarketCap to reject risky coins.
+                        </p>
+                        <p class="about-paragraph">
+                            Approved projects trend post-payment, ensuring trust. Our bot adds real utility, delivering value. When live on Pump.fun and DEX, we're targeting partnerships with Skeleton Bot and WTF Trending.
+                        </p>
+                        <p class="about-paragraph">
+                            Join the $ALIENPING revolution!
+                        </p>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/alienping.jpg-I2xxX7Ss90r7ey6TrWxJ1UoF9YhYkN.jpeg" alt="AlienPing Characters" class="about-img">
+                    </div>
                 </div>
             </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>$ALIENPING is the meme coin to watch, powered by a unique trending bot. We vet projects thoroughly, analyzing wallets, holders, and MarketCap to reject risky coins.</p>
-                    <p>Approved projects trend post-payment, ensuring trust. Our bot adds real utility, delivering value. When live on Pump.fun and DEX, we're targeting partnerships with Skeleton Bot and WTF Trending.</p>
-                    <p>Join the $ALIENPING revolution!</p>
-                </div>
-                <div class="about-image">
-                    <img src="alienping-characters.jpg" alt="AlienPing Characters" class="pulse-animation">
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="features" class="features">
-        <div class="container">
-            <div class="section-header">
-                <h2>Intergalactic <span class="highlight">Features</span></h2>
-                <div class="ufo-divider">
-                    <div class="ufo">👽</div>
+        <section id="features" class="section features-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Intergalactic <span class="highlight">Features</span></h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🔍</div>
+                        <h3 class="feature-title">Project Vetting</h3>
+                        <p class="feature-description">Thorough analysis of wallets, holders, and MarketCap to reject risky coins</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🚀</div>
+                        <h3 class="feature-title">Trending Bot</h3>
+                        <p class="feature-description">Unique bot that ensures approved projects trend post-payment</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔒</div>
+                        <h3 class="feature-title">Trust & Security</h3>
+                        <p class="feature-description">Rigorous verification process to ensure community safety</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💰</div>
+                        <h3 class="feature-title">Real Utility</h3>
+                        <p class="feature-description">Our bot adds real value to the ecosystem, not just hype</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🤝</div>
+                        <h3 class="feature-title">Partnerships</h3>
+                        <p class="feature-description">Strategic partnerships with Skeleton Bot and WTF Trending</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎮</div>
+                        <h3 class="feature-title">Community Raids</h3>
+                        <p class="feature-description">Weekly community raid rewards every Thursday</p>
+                    </div>
                 </div>
             </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🔍</div>
-                    <h3>Project Vetting</h3>
-                    <p>Thorough analysis of wallets, holders, and MarketCap to reject risky coins</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🚀</div>
-                    <h3>Trending Bot</h3>
-                    <p>Unique bot that ensures approved projects trend post-payment</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
-                    <h3>Trust & Security</h3>
-                    <p>Rigorous verification process to ensure community safety</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💰</div>
-                    <h3>Real Utility</h3>
-                    <p>Our bot adds real value to the ecosystem, not just hype</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🤝</div>
-                    <h3>Partnerships</h3>
-                    <p>Strategic partnerships with Skeleton Bot and WTF Trending</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎮</div>
-                    <h3>Community Raids</h3>
-                    <p>Weekly community raid rewards every Thursday</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="tokenomics" class="tokenomics">
-        <div class="container">
-            <div class="section-header">
-                <h2>Token <span class="highlight">Economics</span></h2>
-                <div class="ufo-divider">
-                    <div class="ufo">👽</div>
+        <section id="community" class="section community-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Join Our <span class="highlight">Community</span></h2>
+                    <div class="section-divider"></div>
+                </div>
+                <p class="community-description">
+                    We offer community raid rewards every Thursday, powered entirely by our community, with no paid raiders involved! Join our growing community before launch:
+                </p>
+                <div class="social-grid">
+                    <a href="#" class="social-card twitter">
+                        <i class="fab fa-x-twitter"></i>
+                        <span>Twitter</span>
+                    </a>
+                    <a href="#" class="social-card telegram">
+                        <i class="fab fa-telegram"></i>
+                        <span>Telegram</span>
+                    </a>
+                    <a href="#" class="social-card instagram">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                    </a>
+                    <a href="#" class="social-card tiktok">
+                        <i class="fab fa-tiktok"></i>
+                        <span>TikTok</span>
+                    </a>
+                    <a href="#" class="social-card facebook">
+                        <i class="fab fa-facebook"></i>
+                        <span>Facebook</span>
+                    </a>
+                    <a href="#" class="social-card reddit">
+                        <i class="fab fa-reddit-alien"></i>
+                        <span>Reddit</span>
+                    </a>
+                </div>
+                
+                <div class="newsletter-signup">
+                    <h3 class="newsletter-title">Get Notified at Launch</h3>
+                    <p class="newsletter-description">Be the first to know when $ALIENPING launches</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email address" class="newsletter-input" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
                 </div>
             </div>
-            <div class="tokenomics-content">
-                <div class="tokenomics-chart">
-                    <div class="chart-container">
-                        <canvas id="tokenomicsChart"></canvas>
-                    </div>
-                </div>
-                <div class="tokenomics-info">
-                    <div class="token-info-card">
-                        <h3>Token Symbol</h3>
-                        <p>$ALIENPING</p>
-                    </div>
-                    <div class="token-info-card">
-                        <h3>Total Supply</h3>
-                        <p>1,000,000,000,000</p>
-                    </div>
-                    <div class="token-info-card">
-                        <h3>Network</h3>
-                        <p>Ethereum</p>
-                    </div>
-                    <div class="token-info-card">
-                        <h3>Liquidity</h3>
-                        <p>Locked for 1 Year</p>
-                    </div>
-                    <div class="token-info-card">
-                        <h3>Tax</h3>
-                        <p>0% Buy / 0% Sell</p>
-                    </div>
-                    <div class="token-info-card">
-                        <h3>Launch Date</h3>
-                        <p>June 20, 2025</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <section id="community" class="community">
-        <div class="container">
-            <div class="section-header">
-                <h2>Join Our <span class="highlight">Community</span></h2>
-                <div class="ufo-divider">
-                    <div class="ufo">👽</div>
-                </div>
-            </div>
-            <p class="community-text">We offer community raid rewards every Thursday, powered entirely by our community, with no paid raiders involved! Join our growing community before launch:</p>
-            <div class="social-links">
-                <a href="#" class="social-link twitter">
-                    <i class="fab fa-x-twitter"></i>
-                    <span>Twitter</span>
-                </a>
-                <a href="#" class="social-link telegram">
-                    <i class="fab fa-telegram"></i>
-                    <span>Telegram</span>
-                </a>
-                <a href="#" class="social-link instagram">
-                    <i class="fab fa-instagram"></i>
-                    <span>Instagram</span>
-                </a>
-                <a href="#" class="social-link tiktok">
-                    <i class="fab fa-tiktok"></i>
-                    <span>TikTok</span>
-                </a>
-                <a href="#" class="social-link facebook">
-                    <i class="fab fa-facebook"></i>
-                    <span>Facebook</span>
-                </a>
-                <a href="#" class="social-link reddit">
-                    <i class="fab fa-reddit-alien"></i>
-                    <span>Reddit</span>
-                </a>
-            </div>
-            <div class="pre-launch-signup">
-                <h3>Get Notified at Launch</h3>
-                <p>Be the first to know when $ALIENPING launches</p>
-                <form class="signup-form">
-                    <input type="email" placeholder="Your Email Address" required>
-                    <button type="submit" class="btn primary-btn">Subscribe</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <section id="roadmap" class="roadmap">
-        <div class="container">
-            <div class="section-header">
-                <h2>Intergalactic <span class="highlight">Roadmap</span></h2>
-                <div class="ufo-divider">
-                    <div class="ufo">👽</div>
-                </div>
-            </div>
-            <div class="roadmap-timeline">
-                <div class="roadmap-item">
-                    <div class="roadmap-content">
-                        <h3>Phase 1: Pre-Launch (Current)</h3>
-                        <ul>
-                            <li>Website Development</li>
-                            <li>Social Media Setup</li>
-                            <li>Community Building</li>
-                            <li>Whitelist Registration</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="roadmap-item">
-                    <div class="roadmap-content">
-                        <h3>Phase 2: Launch (June 2025)</h3>
-                        <ul>
-                            <li>Token Launch on DEX</li>
-                            <li>Liquidity Pool Creation</li>
-                            <li>Initial Marketing Push</li>
-                            <li>Community Raids Initiation</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="roadmap-item">
-                    <div class="roadmap-content">
-                        <h3>Phase 3: Growth (Q3 2025)</h3>
-                        <ul>
-                            <li>Bot Development</li>
-                            <li>Trending Partnerships</li>
-                            <li>CEX Listings</li>
-                            <li>Expanded Marketing</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="roadmap-item">
-                    <div class="roadmap-content">
-                        <h3>Phase 4: Expansion (Q4 2025)</h3>
-                        <ul>
-                            <li>Advanced Bot Features</li>
-                            <li>Multi-Chain Expansion</li>
-                            <li>AlienPing Ecosystem</li>
-                            <li>Global Adoption</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="faq" class="faq">
-        <div class="container">
-            <div class="section-header">
-                <h2>Frequently Asked <span class="highlight">Questions</span></h2>
-                <div class="ufo-divider">
-                    <div class="ufo">👽</div>
-                </div>
-            </div>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>When is AlienPing launching?</h3>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>AlienPing is scheduled to launch on June 20, 2025. Join our community channels to stay updated on the exact time and details.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>How do I get on the whitelist?</h3>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>You can join our whitelist by participating in our community activities, following our social media accounts, and completing tasks announced in our Telegram group.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>What is the initial listing price?</h3>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>The initial listing price will be announced closer to the launch date. Join our community to be the first to know.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>How do community raids work?</h3>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We offer community raid rewards every Thursday, powered entirely by our community with no paid raiders involved. Join our Telegram or Twitter to participate!</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>How does the AlienPing bot work?</h3>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Our bot analyzes projects, rejects risky coins, and ensures approved projects trend post-payment. This adds real utility to the ecosystem and delivers value to our community.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="logo.png" alt="AlienPing Logo" class="footer-logo-img">
-                    <p>$ALIENPING</p>
+                <div class="footer-brand">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/alienping.jpg-I2xxX7Ss90r7ey6TrWxJ1UoF9YhYkN.jpeg" alt="AlienPing Logo" class="footer-logo">
+                    <p class="footer-brand-text">$ALIENPING</p>
                     <p class="footer-tagline">Launching June 20, 2025</p>
                 </div>
                 <div class="footer-links">
-                    <div class="footer-links-column">
-                        <h3>Navigation</h3>
-                        <ul>
-                            <li><a href="#about">About</a></li>
-                            <li><a href="#features">Features</a></li>
-                            <li><a href="#tokenomics">Tokenomics</a></li>
-                            <li><a href="#community">Community</a></li>
-                            <li><a href="#roadmap">Roadmap</a></li>
-                            <li><a href="#faq">FAQ</a></li>
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Navigation</h4>
+                        <ul class="footer-list">
+                            <li><a href="#about" class="footer-link">About</a></li>
+                            <li><a href="#features" class="footer-link">Features</a></li>
+                            <li><a href="#community" class="footer-link">Community</a></li>
                         </ul>
                     </div>
-                    <div class="footer-links-column">
-                        <h3>Legal</h3>
-                        <ul>
-                            <li><a href="#">Terms of Service</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Disclaimer</a></li>
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Legal</h4>
+                        <ul class="footer-list">
+                            <li><a href="#" class="footer-link">Terms of Service</a></li>
+                            <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                            <li><a href="#" class="footer-link">Disclaimer</a></li>
                         </ul>
-                    </div>
-                    <div class="footer-links-column">
-                        <h3>Community</h3>
-                        <div class="footer-social-links">
-                            <a href="#" class="footer-social-link"><i class="fab fa-x-twitter"></i></a>
-                            <a href="#" class="footer-social-link"><i class="fab fa-telegram"></i></a>
-                            <a href="#" class="footer-social-link"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="footer-social-link"><i class="fab fa-tiktok"></i></a>
-                            <a href="#" class="footer-social-link"><i class="fab fa-facebook"></i></a>
-                            <a href="#" class="footer-social-link"><i class="fab fa-reddit-alien"></i></a>
-                        </div>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024-2025 AlienPing Intergalactic Currency. All rights reserved.</p>
-                <p class="disclaimer">$ALIENPING is a meme coin with no intrinsic value or financial return expectation. Always DYOR before investing.</p>
+                <p class="footer-copyright">&copy; 2024-2025 AlienPing. All rights reserved.</p>
+                <p class="footer-disclaimer">$ALIENPING is a meme coin with no intrinsic value. Always DYOR before investing.</p>
             </div>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
