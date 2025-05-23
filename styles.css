@@ -1,13 +1,14 @@
 /* Base Styles */
 :root {
-    --primary-color: #00ff4c;
-    --secondary-color: #ff69b4;
+    --primary-color: #ffd700; /* Gold/yellow from the logo */
+    --secondary-color: #ff5722; /* Orange-red from characters */
+    --accent-color: #4caf50; /* Green from alien */
+    --accent-secondary: #9c27b0; /* Purple from octopus */
     --background-color: #000000;
     --text-color: #ffffff;
     --card-bg: rgba(25, 25, 40, 0.7);
     --gradient-start: #0f0f2d;
     --gradient-end: #000000;
-    --accent-color: #8a2be2;
 }
 
 * {
@@ -17,7 +18,7 @@
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
@@ -53,11 +54,11 @@ section {
 
 .highlight {
     color: var(--primary-color);
-    text-shadow: 0 0 10px rgba(0, 255, 76, 0.5);
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
 .glow-text {
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(0, 255, 76, 0.3);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 215, 0, 0.3);
 }
 
 /* Background Effects */
@@ -95,7 +96,7 @@ header {
     z-index: 1000;
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0, 255, 76, 0.2);
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
     transition: all 0.3s ease;
 }
 
@@ -112,8 +113,16 @@ nav {
 }
 
 .logo {
-    height: 50px;
+    height: 40px;
     width: auto;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--primary-color);
 }
 
 .nav-links {
@@ -187,6 +196,8 @@ nav {
     width: 200px;
     height: auto;
     animation: pulse 3s infinite alternate;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
 }
 
 .hero h1 {
@@ -199,6 +210,56 @@ nav {
     font-size: 1.5rem;
     margin-bottom: 40px;
     color: var(--secondary-color);
+}
+
+/* Countdown Styles */
+.countdown-container {
+    margin: 30px 0;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+.countdown-container h2 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.countdown-item span:first-child {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 5px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.countdown-label {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.launch-date {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    color: var(--accent-color);
 }
 
 .hero-buttons {
@@ -243,63 +304,6 @@ nav {
     color: #000;
     box-shadow: 0 0 20px var(--secondary-color);
     transform: translateY(-3px);
-}
-
-.floating-aliens {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-}
-
-.floating-alien {
-    position: absolute;
-    opacity: 0.7;
-    animation: float 15s infinite ease-in-out;
-}
-
-.alien1 {
-    width: 80px;
-    top: 20%;
-    left: 10%;
-    animation-delay: 0s;
-}
-
-.alien2 {
-    width: 60px;
-    top: 60%;
-    right: 15%;
-    animation-delay: 5s;
-}
-
-.alien3 {
-    width: 70px;
-    bottom: 15%;
-    left: 20%;
-    animation-delay: 10s;
-}
-
-@keyframes float {
-    0% {
-        transform: translateY(0) rotate(0deg);
-    }
-    50% {
-        transform: translateY(-20px) rotate(10deg);
-    }
-    100% {
-        transform: translateY(0) rotate(0deg);
-    }
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(1.1);
-    }
 }
 
 /* Section Headers */
@@ -368,11 +372,20 @@ nav {
 .about-image img {
     max-width: 100%;
     border-radius: 20px;
-    box-shadow: 0 0 30px rgba(0, 255, 76, 0.3);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
 }
 
 .pulse-animation {
     animation: pulse 4s infinite alternate;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.05);
+    }
 }
 
 /* Features Section */
@@ -398,7 +411,7 @@ nav {
 
 .feature-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(0, 255, 76, 0.2);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
     border-color: var(--primary-color);
 }
 
@@ -491,7 +504,7 @@ nav {
 
 .social-link:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
 }
 
 .twitter:hover {
@@ -524,33 +537,54 @@ nav {
     color: white;
 }
 
-.community-images {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-.community-image {
-    max-width: 300px;
+/* Pre-launch signup */
+.pre-launch-signup {
+    max-width: 600px;
+    margin: 50px auto 0;
+    text-align: center;
+    padding: 30px;
+    background-color: var(--card-bg);
     border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 215, 0, 0.2);
 }
 
-.community-image img {
-    width: 100%;
-    height: auto;
-    display: block;
+.pre-launch-signup h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
 }
 
-.hover-zoom {
-    transition: transform 0.3s ease;
+.pre-launch-signup p {
+    margin-bottom: 20px;
 }
 
-.community-image:hover .hover-zoom {
-    transform: scale(1.05);
+.signup-form {
+    display: flex;
+    gap: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.signup-form input {
+    flex: 1;
+    padding: 12px 20px;
+    border-radius: 50px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+.signup-form input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.signup-form input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--primary-color);
+}
+
+.signup-form button {
+    padding: 12px 25px;
 }
 
 /* Roadmap Section */
@@ -678,14 +712,14 @@ nav {
 }
 
 .faq-item:hover {
-    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
 }
 
 /* Footer */
 footer {
     background-color: rgba(0, 0, 0, 0.9);
     padding: 70px 0 20px;
-    border-top: 1px solid rgba(0, 255, 76, 0.2);
+    border-top: 1px solid rgba(255, 215, 0, 0.2);
 }
 
 .footer-content {
@@ -769,6 +803,12 @@ footer {
     color: rgba(255, 255, 255, 0.7);
 }
 
+.disclaimer {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
 /* Responsive Styles */
 @media (max-width: 992px) {
     .about-content {
@@ -786,6 +826,10 @@ footer {
     .roadmap-content {
         width: calc(100% - 60px);
         margin-left: 60px !important;
+    }
+    
+    .signup-form {
+        flex-direction: column;
     }
 }
 
@@ -822,6 +866,18 @@ footer {
     
     .tagline {
         font-size: 1.2rem;
+    }
+    
+    .countdown {
+        gap: 10px;
+    }
+    
+    .countdown-item span:first-child {
+        font-size: 2rem;
+    }
+    
+    .countdown-label {
+        font-size: 0.8rem;
     }
     
     .hero-buttons {
@@ -868,5 +924,15 @@ footer {
         width: calc(100% - 50px);
         margin-left: 50px !important;
         padding: 15px;
+    }
+    
+    .countdown {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .countdown-item {
+        width: 45%;
+        margin-bottom: 15px;
     }
 }

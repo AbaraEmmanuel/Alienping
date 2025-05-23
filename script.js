@@ -65,11 +65,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 datasets: [{
                     data: [50, 15, 15, 10, 10],
                     backgroundColor: [
-                        '#00ff4c',
-                        '#ff69b4',
-                        '#8a2be2',
-                        '#00bfff',
-                        '#ffd700'
+                        '#ffd700', // Gold
+                        '#ff5722', // Orange-red
+                        '#4caf50', // Green
+                        '#9c27b0', // Purple
+                        '#2196f3'  // Blue
                     ],
                     borderColor: 'rgba(0, 0, 0, 0.1)',
                     borderWidth: 2
@@ -100,6 +100,35 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    
+    // Countdown Timer
+    function updateCountdown() {
+        const launchDate = new Date('June 20, 2025 00:00:00').getTime();
+        const now = new Date().getTime();
+        const distance = launchDate - now;
+        
+        // Time calculations
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        // Display the result
+        document.getElementById('days').textContent = days.toString().padStart(2, '0');
+        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        
+        // If the countdown is over
+        if (distance < 0) {
+            clearInterval(countdownInterval);
+            document.getElementById('countdown').innerHTML = '<h3>AlienPing Has Launched! 🚀</h3>';
+        }
+    }
+    
+    // Update the countdown every second
+    updateCountdown();
+    const countdownInterval = setInterval(updateCountdown, 1000);
     
     // Scroll animation for elements
     const animateOnScroll = () => {
@@ -155,18 +184,17 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('load', animateOnScroll);
     window.addEventListener('scroll', animateOnScroll);
     
-    // Parallax effect for floating aliens
-    window.addEventListener('mousemove', (e) => {
-        const aliens = document.querySelectorAll('.floating-alien');
-        const x = e.clientX / window.innerWidth;
-        const y = e.clientY / window.innerHeight;
-        
-        aliens.forEach(alien => {
-            const speed = parseFloat(alien.getAttribute('data-speed') || 0.05);
-            const offsetX = (x - 0.5) * 100 * speed;
-            const offsetY = (y - 0.5) * 100 * speed;
+    // Form submission
+    const signupForm = document.querySelector('.signup-form');
+    if (signupForm) {
+        signupForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
             
-            alien.style.transform = `translate(${offsetX}px, ${offsetY}px) rotate(${offsetX * 0.2}deg)`;
+            // Here you would normally send this to your backend
+            // For now, just show an alert
+            alert(`Thank you! ${email} has been added to our launch notification list.`);
+            this.reset();
         });
-    });
+    }
 });
