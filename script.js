@@ -93,6 +93,79 @@ document.addEventListener('DOMContentLoaded', function() {
     updateCountdown();
     const countdownInterval = setInterval(updateCountdown, 1000);
     
+    // Tokenomics Chart
+    const ctx = document.getElementById('tokenomicsChart');
+    if (ctx) {
+        const chart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Liquidity Pool', 'Marketing', 'Development', 'Community Rewards'],
+                datasets: [{
+                    data: [80, 10, 5, 5],
+                    backgroundColor: [
+                        '#FFD700', // Gold
+                        '#FF5722', // Orange
+                        '#4CAF50', // Green
+                        '#9C27B0'  // Purple
+                    ],
+                    borderWidth: 0,
+                    hoverOffset: 10
+                }]
+            },
+            options: {
+                cutout: '70%',
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.label}: ${context.raw}%`;
+                            }
+                        },
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        titleFont: {
+                            family: 'Orbitron'
+                        },
+                        bodyFont: {
+                            family: 'Inter'
+                        },
+                        padding: 12,
+                        cornerRadius: 8
+                    }
+                },
+                animation: {
+                    animateScale: true,
+                    animateRotate: true,
+                    duration: 2000,
+                    easing: 'easeOutQuart'
+                }
+            }
+        });
+    }
+    
+    // FAQ Accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            // Close all FAQ items
+            faqItems.forEach(faqItem => {
+                faqItem.classList.remove('active');
+            });
+            
+            // If the clicked item wasn't active, open it
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+    
     // Newsletter form submission
     const newsletterForm = document.querySelector('.newsletter-form');
     if (newsletterForm) {
@@ -162,28 +235,124 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 5000);
     }
     
-    // Scroll animations
+    // Animate roadmap progress bars on scroll
+    const roadmapItems = document.querySelectorAll('.roadmap-item');
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.2,
+        rootMargin: '0px 0px -100px 0px'
     };
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                const progressFill = entry.target.querySelector('.progress-fill');
+                if (progressFill) {
+                    progressFill.style.width = progressFill.dataset.width || progressFill.style.width;
+                }
+                entry.target.classList.add('animate');
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
     
-    // Observe elements for animation
-    const animatedElements = document.querySelectorAll('.feature-card, .social-card, .about-content');
+    roadmapItems.forEach(item => {
+        const progressFill = item.querySelector('.progress-fill');
+        if (progressFill) {
+            const width = progressFill.style.width;
+            progressFill.style.width = '0%';
+            progressFill.dataset.width = width;
+        }
+        item.classList.add('fade-in');
+        observer.observe(item);
+    });
+    
+    // Animate elements on scroll
+    const animatedElements = document.querySelectorAll('.feature-card, .social-card, .token-info-card, .faq-item');
+    const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in-visible');
+                fadeObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
     animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
+        el.classList.add('fade-in');
+        fadeObserver.observe(el);
+    });
+    
+    // Add animation styles
+    const style = document.createElement('style');
+    style.textContent = `
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .roadmap-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .roadmap-item.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .roadmap-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .roadmap-item:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .roadmap-item:nth-child(4) {
+            transition-delay: 0.6s;
+        }
+        
+        .feature-card:nth-child(2), .token-info-card:nth-child(2), .social-card:nth-child(2) {
+            transition-delay: 0.1s;
+        }
+        
+        .feature-card:nth-child(3), .token-info-card:nth-child(3), .social-card:nth-child(3) {
+            transition-delay: 0.2s;
+        }
+        
+        .feature-card:nth-child(4), .token-info-card:nth-child(4), .social-card:nth-child(4) {
+            transition-delay: 0.3s;
+        }
+        
+        .feature-card:nth-child(5), .token-info-card:nth-child(5), .social-card:nth-child(5) {
+            transition-delay: 0.4s;
+        }
+        
+        .feature-card:nth-child(6), .token-info-card:nth-child(6), .social-card:nth-child(6) {
+            transition-delay: 0.5s;
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Parallax effect for hero elements
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const parallaxElements = document.querySelectorAll('.main-logo, .hero-title');
+        
+        parallaxElements.forEach(element => {
+            const speed = 0.3;
+            element.style.transform = `translateY(${scrolled * speed}px)`;
+        });
     });
     
     // Header scroll effect
@@ -193,7 +362,15 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', () => {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
-        if (scrollTop > lastScrollTop && scrollTop > 100) {
+        if (scrollTop > 100) {
+            header.style.background = 'rgba(0, 0, 0, 0.95)';
+            header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.5)';
+        } else {
+            header.style.background = 'rgba(0, 0, 0, 0.8)';
+            header.style.boxShadow = 'none';
+        }
+        
+        if (scrollTop > lastScrollTop && scrollTop > 300) {
             // Scrolling down
             header.style.transform = 'translateY(-100%)';
         } else {
@@ -203,81 +380,4 @@ document.addEventListener('DOMContentLoaded', function() {
         
         lastScrollTop = scrollTop;
     });
-    
-    // Add loading animation
-    window.addEventListener('load', () => {
-        document.body.classList.add('loaded');
-    });
-    
-    // Parallax effect for hero elements
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const parallaxElements = document.querySelectorAll('.main-logo');
-        
-        parallaxElements.forEach(element => {
-            const speed = 0.5;
-            element.style.transform = `translateY(${scrolled * speed}px)`;
-        });
-    });
-    
-    // Button click effects
-    const buttons = document.querySelectorAll('.btn');
-    buttons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            // Create ripple effect
-            const ripple = document.createElement('span');
-            const rect = this.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
-            
-            ripple.style.cssText = `
-                position: absolute;
-                width: ${size}px;
-                height: ${size}px;
-                left: ${x}px;
-                top: ${y}px;
-                background: rgba(255, 255, 255, 0.3);
-                border-radius: 50%;
-                transform: scale(0);
-                animation: ripple 0.6s linear;
-                pointer-events: none;
-            `;
-            
-            this.style.position = 'relative';
-            this.style.overflow = 'hidden';
-            this.appendChild(ripple);
-            
-            setTimeout(() => {
-                ripple.remove();
-            }, 600);
-        });
-    });
-    
-    // Add ripple animation
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes ripple {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
-        
-        .loaded .hero-content {
-            animation: fadeInUp 1s ease;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    `;
-    document.head.appendChild(style);
 });
