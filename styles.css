@@ -403,6 +403,7 @@ body {
 }
 
 .main-logo {
+    margin-top: 50px;
     width: 200px;
     height: auto;
     border-radius: 15px;
